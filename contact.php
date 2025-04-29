@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/register.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/contact.css">
 </head>
-<body>
-    
+
+<body class="d-flex" style="background-color:rgb(50, 53, 60);">
 
 
+    <?php
+    include "includes/header.php";
+    ?>
 
-<section id="friendsTab">
+
+    <section id="friendsTab">
+
+        <!--
         <div class="popUpBox" id="popUp">
             <div class="popUpBox-inner">
                 <h4 class="pb-5">Add friends using their email to send a request!</h4>
@@ -33,38 +40,195 @@
             </div>
         </div>
 
+-->
+
 
         <div class="floatingPart">
             <div class="imagePart">
-                <img src="assets/images/addCircle.svg" alt="Add friend" id="friendCircle" style="cursor: pointer;">
+                <img src="assets/images/add.svg" alt="Add friend" id="friend" style="cursor: pointer;">
                 <img src="assets/images/notification.svg" alt="Notification" style="cursor: pointer;">
             </div>
         </div>
+
         <div class="friendsTabDesign">
-            <div class="friendsGroup pl-3 pr-4 p-1">
-                <img src="assets/images/account.svg" alt="" width="60">
-                <div class="info">
-                    <p>Name Surename</p>
-                    <p>Last online</p>
-                </div>
-                <div class="linkBox">
-                    <a href=""><img src="assets/images/chats.svg" alt="" width="30" title="Chat with friend"></a>
-                    <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+            <ul style="text-decoration: none; list-style:none;">
+                <li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
 
-                </div>
-            </div>
-            <div class="friendsGroup pl-3 pr-4 p-1">
-                <img src="assets/images/account.svg" alt="" width="60">
-                <div class="info">
-                    <p>Name Surename</p>
-                    <p>Last online</p>
-                </div>
-                <div class="linkBox">
-                    <a href=""><img src="assets/images/chats.svg" alt="" width="30" title="Chat with friend"></a>
-                    <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
 
-                </div>
-            </div>
+                        </div>
+                    </div>
+                </li><li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+
+                        </div>
+                    </div>
+                </li><li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+
+                        </div>
+                    </div>
+                </li><li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+
+                        </div>
+                    </div>
+                </li><li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+
+                        </div>
+                    </div>
+                </li><li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+
+                        </div>
+                    </div>
+                </li><li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+
+                        </div>
+                    </div>
+                </li><li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+
+                        </div>
+                    </div>
+                </li><li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+
+                        </div>
+                    </div>
+                </li><li>
+                    <div class="friendsGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                            <p>Last online</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+
+                        </div>
+                    </div>
+                </li>
+                
+            </ul>
+
 
         </div>
     </section>
@@ -78,4 +242,5 @@
 
 
 </body>
+
 </html>

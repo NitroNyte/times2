@@ -1,0 +1,119 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+#chatPanel {
+    display: flex;
+    flex-direction: column;
+}
+
+#chatPanel .node {
+    height: 100px;
+}
+
+#chatPanel .node {
+    height: 100px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 1em 10px 1em;
+    color: white;
+    text-decoration: none;
+
+}
+
+#chatPanel .node:hover {
+    
+    box-sizing: border-box;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    background-color: rgb(0, 0, 0, 0.2);
+    transition: background 0.3s, border 0.3s;
+    
+}
+
+
+#messagePanel{
+    border-left: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100vh;
+}
+
+#messagePanel .infoBox {
+    background-color: rgba(10, 10, 10, 0.519);
+    display: flex;
+    gap: 20px;
+    padding-left: 2em;
+    height: 10%;
+}
+
+
+#messagePanel .infoBox .nameBox {
+    padding-top: 0.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+#messagePanel .textAreaMessages {
+    height: 83%;
+    display: block;
+}
+
+#messagePanel .textAreaMessages .sender {
+    display: flex;
+    color: white;
+    flex: 1;
+    justify-content: flex-end;
+    padding-top: 1em;
+    padding-right: 1em;
+}
+
+
+#messagePanel .textAreaMessages .sender .senderBoxMessage {
+background-color: green;
+padding: 12px 20px 0px 20px ;
+border-radius: 25px;
+
+}
+
+
+
+#messagePanel .textAreaMessages .contact {
+    display: flex;
+    color: white;
+    flex: 1;
+    justify-content: flex-start;
+    padding-top: 1em;
+    padding-left: 1em;
+}
+
+
+#messagePanel .textAreaMessages .contact .contactBoxSentMessage {
+background-color: green;
+padding: 12px 20px 1px 20px ;
+border-radius: 25px;
+
+}
+
+.messageBox {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 10%;
+}
+
+.messageBox input[type="text"] {
+    background-color: rgba(0, 0, 0, 0.393);
+    height: 100%;
+    color: white;
+    padding-left: 10px;
+    outline: none;
+}

@@ -6,72 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>x2Chat</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/interfaceChats.css">
+    <link rel="stylesheet" href="assets/css/chatPage.css">
 </head>
 
-<body class="d-flex">
+<body class="d-flex" style="background-color:rgb(50, 53, 60);">
     <?php
     include "includes/header.php";
     ?>
 
-    <section id="chatPanel" style="background-color:rgb(50, 53, 60);" class="pl-3 pr-3 pt-3">
+    <section id="chatPanel" class="pl-3 pr-3 pt-3">
         <div class="nameBox">
-            <p>Messages</p>
+            <p style="color: white; border-bottom: 1px solid white; padding-bottom: 10px;">Messages</p>
         </div>
-        <div class="text node pl-3 pr-4 p-1">
-            <a href="">
+        <div class="node">
+
                 <img src="assets/images/account.svg" alt="" width="60">
                 <div class="info">
                     <p>Name Surename</p>
-                    <p>Last online</p>
+                    <p class="text-secondary">Last online</p>
                 </div>
-            </a>
+
         </div>
-        <div class="text node pl-3 pr-4 p-1">
-            <a href="">
-                <img src="assets/images/account.svg" alt="" width="60">
-                <div class="info">
-                    <p>Name Surename</p>
-                    <p>Last online</p>
-                </div>
-            </a>
-        </div>
-        <div class="text node pl-3 pr-4 p-1">
-            <a href="">
-                <img src="assets/images/account.svg" alt="" width="60">
-                <div class="info">
-                    <p>Name Surename</p>
-                    <p>Last online</p>
-                </div>
-            </a>
-        </div>
-        <div class="text node pl-3 pr-4 p-1">
-            <a href="">
-                <img src="assets/images/account.svg" alt="" width="60">
-                <div class="info">
-                    <p>Name Surename</p>
-                    <p>Last online</p>
-                </div>
-            </a>
-        </div>
-        <div class="text node pl-3 pr-4 p-1">
-            <a href="">
-                <img src="assets/images/account.svg" alt="" width="60">
-                <div class="info">
-                    <p>Name Surename</p>
-                    <p>Last online</p>
-                </div>
-            </a>
-        </div>
-        <div class="text node pl-3 pr-4 p-1">
-            <a href="interfaceChats.php">
-                <img src="assets/images/account.svg" alt="" width="60">
-                <div class="info">
-                    <p>Name Surename</p>
-                    <p>Last online</p>
-                </div>
-            </a>
-        </div>
+        
     </section>
 
 
@@ -94,7 +50,7 @@
             <div class="contact">
                 <div class="contactBoxMessage">
                     <div class="contactBoxName">
-                        <h6>Friend</h6>
+                        <h6 style="color:gray; font-style:italic; padding-left: 10px">Friend</h6>
                     </div>
                     <div class="contactBoxSentMessage">
                         <p>What's up</p>
@@ -106,7 +62,7 @@
         </div>
 
         <div class="messageBox">
-            <input type="text" placeholder="Type your text here...">
+            <input type="text" placeholder="Type your here...">
         </div>
     </section>
 
