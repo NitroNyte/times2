@@ -19,7 +19,7 @@
 
     <section id="friendsTab">
 
-        <!--
+  
         <div class="popUpBox" id="popUp">
             <div class="popUpBox-inner">
                 <h4 class="pb-5">Add friends using their email to send a request!</h4>
@@ -40,7 +40,6 @@
             </div>
         </div>
 
--->
 
 
         <div class="floatingPart">
@@ -67,152 +66,6 @@
                     </div>
                 </li>
                 <li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
-
-                        </div>
-                    </div>
-                </li><li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
-
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
-
-                        </div>
-                    </div>
-                </li><li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
-
-                        </div>
-                    </div>
-                </li><li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
-
-                        </div>
-                    </div>
-                </li><li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
-
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
-
-                        </div>
-                    </div>
-                </li><li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
-
-                        </div>
-                    </div>
-                </li><li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
-
-                        </div>
-                    </div>
-                </li><li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
-
-                        </div>
-                    </div>
-                </li><li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
-
-                        </div>
-                    </div>
-                </li><li>
                     <div class="friendsGroup pl-3 pr-4 p-1">
                         <img src="assets/images/account.svg" alt="" width="60">
                         <div class="info">

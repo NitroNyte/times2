@@ -6,11 +6,11 @@
 }
 
 .floatingPart {
-    margin-top: 10em;
     display: flex;
-
     padding: 10px;
     width: 30em;
+    margin: 0.7em 0;
+
 }
 
 .floatingPart .imagePart {
@@ -21,7 +21,7 @@
 #friendsTab {
     display: flex;
     flex: 1;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
@@ -30,13 +30,23 @@
 }
 
 #friendsTab .friendsTabDesign {
-    border: 3px groove white;
+    border: 2px solid rgba(255, 255, 255, 0.499);
+    box-shadow: 0px 0px 5px 1px rgb(255, 255,255 , 0.5);
     border-radius: 10px 10px 0 0;
     width: 35%;
     padding: 10px;
     box-sizing: border-box;
-    max-height: 37.2em; 
+    height: 100%; 
     overflow-y: auto;
+    border-top: 1px solid none;
+    border-bottom: 1px solid none;
+}
+
+
+#friendsTab .friendsTabDesign:hover {
+    box-shadow: 0px 0px 10px 10px rgb(255, 255,255 , 0.5);
+    border: 2px solid transparent;
+    transition: box-shadow 0.5s;
 }
 
 #friendsTab .friendsTabDesign .friendsGroup {
@@ -44,16 +54,12 @@
     gap: 20px;
     color: white;
     padding: 5px;
-    box-sizing: border-box;
 }
 
 #friendsTab .friendsTabDesign .friendsGroup:hover {
-    box-sizing: border-box;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
     background-color: rgb(0, 0, 0, 0.2);
-    transition: background 0.3s, border 0.3s;
-    box-sizing: border-box;
+    transition: background 0.3s, border 0.3s;;
+    border-radius: 10px;
 }
 
 #friendsTab .friendsTabDesign .friendsGroup .linkBox {
@@ -62,6 +68,24 @@
     justify-content: center;
     align-items: center;
     flex: 1;
+}
+
+
+
+.popUpBox{
+    background-color: rgb(0, 0, 0, 0.3);
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.popUpBox.open{
+    z-index: 999;
+    display: block;
 }
 
 

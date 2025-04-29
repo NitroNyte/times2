@@ -5,8 +5,10 @@
                 <li title="Chats"><a href="chatPage.php"><img src="assets/images/chat.svg" alt="chats" width="50"></a></li>
                 <li title="Contacts" class="pt-2"><a href="contact.php"><img src="assets/images/group.svg" alt="contacts" width="50"></a></li>
             </div>
-            <li title="Log out"><a href="logout.php"><img src="assets/images/turnoff.svg" alt="log out" width="50"></a></li>
-            <li title="Account"><a href="account.php"><img src="assets/images/account.svg" alt="account" width="50"></a></li>
+            <div>
+                <li title="Log out" class="pb-3"><a href="logout.php"><img src="assets/images/turnoff.svg" alt="log out" width="50"></a></li>
+                <li title="Account"><a href="account.php"><img src="assets/images/account.svg" alt="account" width="50"></a></li>
+            </div>
         </ul>
     </nav>
 </header>
