@@ -1,3 +1,23 @@
+
+
+<?php
+require "includes/db.php";
+
+if(!empty($_POST['emri']) && !empty($_POST['mbiemri']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+  if(registerUser($_POST['emri'],$_POST['mbiemri'],$_POST['email'],$_POST['password'])) {
+    echo "Emaili eshte i nxene";
+  }
+  else {
+    header("Location: chatPage.php");
+    exit();
+  }
+  
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,18 +25,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/register.css">
+  <link rel="stylesheet" href="assets/css/centerForm.css">
 </head>
 <body>
     
-
-
-
-
-
   <div id="formDivison" class="d-flex justify-content-center align-items-center flex-column">
-    <form id="loginForm" action="" class="d-flex justify-content-center align-items-center flex-column" method="post">
-      <h1>x2 Register</h1>
+    <form id="loginForm" action="" class="d-flex justify-content-center align-items-center flex-column p-5 rounded" method="post">
+      <h1 class="pb-3">x2 Register</h1>
       <div class="form-group ">
         <label for="emri">Emri</label>
         <input type="text" class="form-control" name="emri" id="emri" aria-describedby="emri" placeholder="Shenoni emrin">

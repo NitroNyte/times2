@@ -1,3 +1,24 @@
+<?php
+require "includes/db.php";
+
+session_start();
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sendRequest'])) {
+    $email = $_POST['email'];
+    $userID = $_SESSION['userID'];
+    if (sendFriendRequest($userID, $email)) {
+    } else {
+    }
+}
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +40,6 @@
 
     <section id="friendsTab">
 
-  
         <div class="popUpBox" id="popUp">
             <div class="popUpBox-inner">
                 <h4 class="pb-5">Add friends using their email to send a request!</h4>
@@ -29,23 +49,100 @@
                         <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">Please be specific when entering your friends email</small>
                     </div>
+                    <input type="submit" name="sendRequest" class="btn btn-primary mt-3 mb-3" value="Send request">
                 </form>
-                <input type="submit" name="loginButton" class="btn btn-primary mt-3 mb-3" value="Send request" id="closePopUp">
+                <button class="btn btn-primary" id="closePopUp">Close panel</button>
             </div>
         </div>
 
-        <div class="popUpBoxNotification" id="popUpNotification">
-            <div class="popUpBox-inner">
+        <div class="popUpBoxNotification" id="popUpNotifications">
+            <div class="popUpBox-Notification">
+                <h4 class="pb-3 border-bottom">Friend requests</h4>
+                <ul>
+                <li>
+                    <div class="friendRequestGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="friendRequestGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="friendRequestGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="friendRequestGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="friendRequestGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="friendRequestGroup pl-3 pr-4 p-1">
+                        <img src="assets/images/account.svg" alt="" width="60">
+                        <div class="info">
+                            <p>Name Surename</p>
+                        </div>
+                        <div class="linkBox">
+                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
+                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
+                        </div>
+                    </div>
+                </li>
+                </ul>
+
+                <button class="btn btn-primary" style="position:relative; top:8em;" id="closePopUpNotification">Close panel</button>
 
             </div>
+            
         </div>
-
-
 
         <div class="floatingPart">
             <div class="imagePart">
                 <img src="assets/images/add.svg" alt="Add friend" id="friend" style="cursor: pointer;">
-                <img src="assets/images/notification.svg" alt="Notification" style="cursor: pointer;">
+                <img src="assets/images/notification.svg" alt="Notification" id="notifications" style="cursor: pointer;">
             </div>
         </div>
 
@@ -79,7 +176,7 @@
                         </div>
                     </div>
                 </li>
-                
+
             </ul>
 
 

@@ -1,91 +1,184 @@
 * {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 .floatingPart {
-    display: flex;
-    padding: 10px;
-    width: 30em;
-    margin: 0.7em 0;
-
+  display: flex;
+  padding: 10px;
+  width: 30em;
+  margin: 0.7em 0;
 }
 
 .floatingPart .imagePart {
-   display: flex;
-   gap: 30px;
+  display: flex;
+  gap: 30px;
 }
 
 #friendsTab {
-    display: flex;
-    flex: 1;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden; 
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
 #friendsTab .friendsTabDesign {
-    border: 2px solid rgba(255, 255, 255, 0.499);
-    box-shadow: 0px 0px 5px 1px rgb(255, 255,255 , 0.5);
-    border-radius: 10px 10px 0 0;
-    width: 35%;
-    padding: 10px;
-    box-sizing: border-box;
-    height: 100%; 
-    overflow-y: auto;
-    border-top: 1px solid none;
-    border-bottom: 1px solid none;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 5px 1px rgb(255, 255, 255, 0.5);
+  border-radius: 10px 10px 0 0;
+  width: 35%;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  border-top: 1px solid none;
+  border-bottom: 1px solid none;
 }
 
-
 #friendsTab .friendsTabDesign:hover {
-    box-shadow: 0px 0px 10px 10px rgb(255, 255,255 , 0.5);
-    border: 2px solid transparent;
-    transition: box-shadow 0.5s;
+  box-shadow: 0px 0px 10px 10px rgb(255, 255, 255, 0.5);
+  border: 2px solid transparent;
+  transition: box-shadow 0.5s;
 }
 
 #friendsTab .friendsTabDesign .friendsGroup {
-    display: flex;
-    gap: 20px;
-    color: white;
-    padding: 5px;
+  display: flex;
+  gap: 20px;
+  color: white;
+  padding: 5px;
 }
 
 #friendsTab .friendsTabDesign .friendsGroup:hover {
-    background-color: rgb(0, 0, 0, 0.2);
-    transition: background 0.3s, border 0.3s;;
-    border-radius: 10px;
+  background-color: rgb(0, 0, 0, 0.2);
+  transition: background 0.3s, border 0.3s;
+  border-radius: 10px;
 }
 
 #friendsTab .friendsTabDesign .friendsGroup .linkBox {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
+.popUpBox {
+  background-color: rgb(0, 0, 0, 0.3);
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
 
-
-.popUpBox{
-    background-color: rgb(0, 0, 0, 0.3);
-    display: none;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.popUpBox.open{
-    z-index: 999;
-    display: block;
+.popUpBoxNotification {
+  background-color: rgb(0, 0, 0, 0.3);
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.popUpBox.open {
+  z-index: 999;
+  opacity: 1;
+}
 
+.popUpBoxNotification.open {
+  z-index: 999;
+  opacity: 1;
+}
+
+.popUpBox-inner {
+  width: 400px;
+  height: 400px;
+  background-color: rgb(50, 53, 60);
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 5px 1px rgb(255, 255, 255, 0.5);
+  box-sizing: border-box;
+}
+
+.popUpBox .popUpBox-inner:hover {
+  box-shadow: 0px 0px 10px 10px rgb(255, 255, 255, 0.5);
+  border: 2px solid transparent;
+  transition: box-shadow 0.5s;
+}
+
+.popUpBox-Notification {
+  overflow-y: auto;
+  width: 400px;
+  height: 400px;
+  background-color: rgb(50, 53, 60);
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 5px 1px rgb(255, 255, 255, 0.5);
+  box-sizing: border-box;
+}
+
+.popUpBox .popUpBox-Notification:hover {
+  box-shadow: 0px 0px 10px 10px rgb(255, 255, 255, 0.5);
+  border: 2px solid transparent;
+  transition: box-shadow 0.5s;
+}
+
+.popUpBoxNotification ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.popUpBoxNotification ul li .friendRequestGroup {
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.popUpBoxNotification ul li .friendRequestGroup .linkBox {
+  padding-left: 1em;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.popUpBoxNotification ul li .friendRequestGroup:hover {
+  background-color: rgb(0, 0, 0, 0.2);
+  transition: background 0.3s, border 0.3s;
+  border-radius: 10px;
+}

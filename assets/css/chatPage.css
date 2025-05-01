@@ -8,18 +8,16 @@
     flex-direction: column;
 }
 
-#chatPanel .node {
-    height: 100px;
-}
 
 #chatPanel .node {
-    height: 100px;
+    height:6.5em;
+    width: 15em;
     display: flex;
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 10px 1em 10px 1em;
+    padding: 10px 1em 10px 0;
     color: white;
     text-decoration: none;
 
@@ -27,11 +25,9 @@
 
 #chatPanel .node:hover {
     
-    box-sizing: border-box;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    background-color: rgb(0, 0, 0, 0.2);
-    transition: background 0.3s, border 0.3s;
+background-color: rgb(0, 0, 0, 0.2);
+  transition: background 0.3s, border 0.3s;
+  border-radius: 10px;
     
 }
 
