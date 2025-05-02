@@ -1,5 +1,5 @@
 <?php
-require 'includes/db.php';
+require 'includes/functions.php';
 session_start();
 
 //ska use qtu niher
@@ -18,24 +18,39 @@ session_start();
     <link rel='stylesheet' href='assets/css/chatPage.css'>
 </head>
 
-<body class='d-flex' style='background-color:rgb(50, 53, 60);'>
+<body>
+
+    <main  class='d-flex' style='background-color:rgb(50, 53, 60);'>
     <?php
     include 'includes/header.php';
     ?>
 
     <section id='chatPanel' class='pl-3 pr-3 pt-3'>
-        <div class='nameBox'>
+    <div class='nameBox'>
             <p style='color: white; border-bottom: 1px solid white; padding-bottom: 10px;'>Messages</p>
         </div>
-        <div class='node'>
-                <img src='assets/images/account.svg' alt='' width='60'>
-                <div class='info'>
-                    <p><?php echo "{$_SESSION['name']}  {$_SESSION['surname']}";  ?></p>
-                    <p class='text-secondary'>Last online</p>
-                </div>
 
-        </div>
+        <?php
+        $friendsList = getFriendListDESC();
+        if(!empty($friendsList)){
+            echo'<ul style="list-style-type: none;">';
+            while($row = $friendsList -> fetch_assoc()){
+                $fullName = $row['name'] . $row['surname'];
+                echo "<li>
+                        <div class='node'>
+                        <img src='assets/images/account.svg' alt='' width='60'>
+                        <div class='info'>
+                            <p>".htmlspecialchars($fullName)."</p>
+                            <p class='text-secondary'>Last online</p>
+                        </div>
+                        </div>
+                        </li>";
+            }
+        } 
         
+            
+        echo"</ul>";
+        ?>
     </section>
 
 
@@ -89,7 +104,7 @@ session_start();
     <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script>
-
+        </main>
 </body>
 
 </html>

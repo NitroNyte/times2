@@ -1,20 +1,29 @@
 <?php
-require "includes/db.php";
+require "includes/functions.php";
 
 session_start();
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sendRequest'])) {
     $email = $_POST['email'];
-    $userID = $_SESSION['userID'];
+
     if (sendFriendRequest($userID, $email)) {
     } else {
     }
 }
+// try{
+//     echo $_POST['userID'];
+// }catch(Exception){
 
+// }
 
-
-
+if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['accept'])){
+   // echo "<script>alert(`{$_GET['accept']}`);</script>";
+    if(acceptFriendRequest($_GET['accept'])){
+        
+    }else{
+    }
+}
 
 ?>
 
@@ -30,8 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sendRequest'])) {
     <link rel="stylesheet" href="assets/css/contact.css">
 </head>
 
-<body class="d-flex" style="background-color:rgb(50, 53, 60);">
+<body>
 
+<main class="d-flex" style="background-color:rgb(50, 53, 60);">
 
     <?php
     include "includes/header.php";
@@ -55,89 +65,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sendRequest'])) {
             </div>
         </div>
 
-        <div class="popUpBoxNotification" id="popUpNotifications">
+        <?php if(isset($_GET['clist'])){?>
+            
+        <div class="popUpBoxNotification open" id="popUpNotifications">
             <div class="popUpBox-Notification">
                 <h4 class="pb-3 border-bottom">Friend requests</h4>
                 <ul>
-                <li>
-                    <div class="friendRequestGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="friendRequestGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="friendRequestGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="friendRequestGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="friendRequestGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="friendRequestGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
-                        </div>
-                    </div>
-                </li>
+                    <?php
+                        $arrayOfFriendRequests = getPendingList($_SESSION['userID']);
+                        if (!empty($arrayOfFriendRequests) && $arrayOfFriendRequests->num_rows > 0) {
+                        while ($row = $arrayOfFriendRequests->fetch_assoc()) {
+                            $fullName = $row['name'] . $row['surname'];
+
+                            echo '<li>
+                                    <div class="friendRequestGroup pl-3 pr-4 p-1">
+                                        <img src="assets/images/account.svg" alt="" width="60">
+                                        <div class="info">
+                                            <p>'. htmlspecialchars($fullName) .'</p>
+                                        </div>
+                                        <div class="linkBox">
+                                            <a href="contact.php?accept='.$row['userID'].'"><img src="assets/images/check.svg" alt="" width="30" title="Accept"></a>
+                                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Ignore"></a>
+                                        </div>
+                                    </div>
+                                </li>';
+                        }
+                    } else {
+                        echo "<li>You have no friend request's</li>";
+                    }
+                    ?>
                 </ul>
-
                 <button class="btn btn-primary" style="position:relative; top:8em;" id="closePopUpNotification">Close panel</button>
-
             </div>
-            
+            <script>
+                                
+                const closeNotificationsBtn = document.getElementById("closePopUpNotification");
+                const notificationsPane = document.getElementById("popUpNotifications");
+
+                closeNotificationsBtn.addEventListener("click", () => {
+                notificationsPane.classList.remove("open");
+                window.location.href='contact.php'
+                });
+
+            </script>
         </div>
+        <?php } ?>
 
         <div class="floatingPart">
             <div class="imagePart">
@@ -148,34 +120,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sendRequest'])) {
 
         <div class="friendsTabDesign">
             <ul style="text-decoration: none; list-style:none;">
-                <li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
+                <?php
+
+                $friendList = getFriendList();
+                if (!empty($friendList)) {
+                while($row = $friendList -> fetch_assoc() ) {
+                    $fullName = $row['name'] . $row['surname'];
+                    echo"<li>
+                    <div class='friendsGroup pl-3 pr-4 p-1'>
+                        <img src='assets/images/account.svg' alt='' width='60'>
+                        <div class='info'>
+                            <p>". htmlspecialchars($fullName) ."</p>
                             <p>Last online</p>
                         </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+                        <div class='linkBox'>
+                            <a href=''><img src='assets/images/chat.svg' alt='' width='30' title='Chat with friend'></a>
+                            <a href=''><img src='assets/images/close.svg' alt='' width='30' title='Delete friend'></a>
 
                         </div>
                     </div>
-                </li>
-                <li>
-                    <div class="friendsGroup pl-3 pr-4 p-1">
-                        <img src="assets/images/account.svg" alt="" width="60">
-                        <div class="info">
-                            <p>Name Surename</p>
-                            <p>Last online</p>
-                        </div>
-                        <div class="linkBox">
-                            <a href=""><img src="assets/images/chat.svg" alt="" width="30" title="Chat with friend"></a>
-                            <a href=""><img src="assets/images/close.svg" alt="" width="30" title="Delete friend"></a>
+                </li>";
+                }
+            }
 
-                        </div>
-                    </div>
-                </li>
+                    ?>
 
             </ul>
 
@@ -188,9 +156,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sendRequest'])) {
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="assets/js/contact.js"></script>
-
-
+    <script src="assets/js/contact.js">
+        function sendData(userid){
+            $.ajax({
+                type : "POST",  //type of method
+                url  : "contact.php",  //your page
+                data : { userID : userid },// passing the values
+                success: function(res){  
+                                        console.log("yay");
+                        }
+            });
+        }
+        
+    </script>
+    </main>
 </body>
 
 </html>

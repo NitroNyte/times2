@@ -1,7 +1,7 @@
 
 
 <?php
-require "includes/db.php";
+require "includes/functions.php";
 
 if(!empty($_POST['emri']) && !empty($_POST['mbiemri']) && !empty($_POST['email']) && !empty($_POST['password'])) {
   if(registerUser($_POST['emri'],$_POST['mbiemri'],$_POST['email'],$_POST['password'])) {
@@ -28,7 +28,7 @@ if(!empty($_POST['emri']) && !empty($_POST['mbiemri']) && !empty($_POST['email']
   <link rel="stylesheet" href="assets/css/centerForm.css">
 </head>
 <body>
-    
+    <main>
   <div id="formDivison" class="d-flex justify-content-center align-items-center flex-column">
     <form id="loginForm" action="" class="d-flex justify-content-center align-items-center flex-column p-5 rounded" method="post">
       <h1 class="pb-3">x2 Register</h1>
@@ -61,7 +61,7 @@ if(!empty($_POST['emri']) && !empty($_POST['mbiemri']) && !empty($_POST['email']
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-
+  </main>
 
 </body>
 </html>

@@ -2,12 +2,6 @@ const addFriendBtn = document.getElementById("friend");
 const closeAddFriendBtn = document.getElementById("closePopUp");
 const popUpBox = document.getElementById("popUp");
 
-const notificationsBtn = document.getElementById("notifications");
-const closeNotificationsBtn = document.getElementById(
-  "closePopUpNotification"
-);
-const notificationsImg = document.getElementById("popUpNotifications");
-
 addFriendBtn.addEventListener("click", () => {
   popUpBox.classList.add("open");
 });
@@ -16,10 +10,11 @@ closeAddFriendBtn.addEventListener("click", () => {
   popUpBox.classList.remove("open");
 });
 
+const notificationsBtn = document.getElementById("notifications");
+
+//Per marjanin notify button i website
 notificationsBtn.addEventListener("click", () => {
-  notificationsImg.classList.add("open");
+  window.location.href='contact.php?clist=true'
 });
 
-closeNotificationsBtn.addEventListener("click", () => {
-  notificationsImg.classList.remove("open");
-});
+
