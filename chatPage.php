@@ -37,7 +37,7 @@ session_start();
             while($row = $friendsList -> fetch_assoc()){
                 $fullName = $row['name'] . $row['surname'];
                 echo "<li>
-                        <div class='node'>
+                        <div onclick='chatPage.php?startChat=". $row['userID'] ."' class='node'>
                         <img src='assets/images/account.svg' alt='' width='60'>
                         <div class='info'>
                             <p>".htmlspecialchars($fullName)."</p>
@@ -104,7 +104,23 @@ session_start();
     <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script>
-        </main>
+    <script>
+        function getPersonDetails(user_ID){
+            $.ajax({
+                type : "POST",
+                url : "chatPage.php",
+                data : { userID : user_ID},
+                success : alert("It is done")
+            });
+        }
+
+
+
+    </script>
+
+
+
+</main>
 </body>
 
 </html>
