@@ -2,7 +2,7 @@
 require "includes/functions.php";
 
 session_start();
-
+$userID = $_SESSION['userID'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sendRequest'])) {
     $email = $_POST['email'];
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sendRequest'])) {
 
 if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['accept'])){
    // echo "<script>alert(`{$_GET['accept']}`);</script>";
-    if(acceptFriendRequest($_GET['accept'])){
+    if(acceptFriendRequest($userID, $_GET['accept'])){
         
     }else{
     }
@@ -122,7 +122,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['accept'])){
             <ul style="text-decoration: none; list-style:none;">
                 <?php
 
-                $friendList = getFriendList();
+                $friendList = getFriendList($userID);
                 if (!empty($friendList)) {
                 while($row = $friendList -> fetch_assoc() ) {
                     $fullName = $row['name'] . $row['surname'];

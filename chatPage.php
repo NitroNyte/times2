@@ -1,7 +1,7 @@
 <?php
 require 'includes/functions.php';
 session_start();
-
+$userID = $_SESSION['userID'];
 //ska use qtu niher
 
 ?>
@@ -31,20 +31,23 @@ session_start();
         </div>
 
         <?php
-        $friendsList = getFriendListDESC();
+        $friendsList = getFriendListDESC($userID);
         if(!empty($friendsList)){
             echo'<ul style="list-style-type: none;">';
             while($row = $friendsList -> fetch_assoc()){
-                $fullName = $row['name'] . $row['surname'];
-                echo "<li>
-                        <div onclick='chatPage.php?startChat=". $row['userID'] ."' class='node'>
+                $fullName = $row['name'] . " ". $row['surname'];
+                echo "
+                <a href='chatPage.php?startChat=". $row['userID'] ."' style='text-decoration:none;'>
+                <li>
+                        <div class='node'>
                         <img src='assets/images/account.svg' alt='' width='60'>
                         <div class='info'>
                             <p>".htmlspecialchars($fullName)."</p>
                             <p class='text-secondary'>Last online</p>
                         </div>
                         </div>
-                        </li>";
+                        </li>
+                        </a>";
             }
         } 
         
@@ -57,11 +60,13 @@ session_start();
     <section id='messagePanel' class='messagePanelEdit'>
         <?php
 
-        if(true) {
+        if(isset($_GET['startChat'])) {
+            $fullNameList = getFriendName($_GET['startChat']);
+            $row = $fullNameList -> fetch_assoc();
        echo "<div class='infoBox'>
             <img src='assets/images/account.svg' alt='picture' width='60'>
-            <div class='nameBox'>
-                <p>Name Surname</p>
+            <div id='nameAndSurname' class='nameBox'>
+                <p>".$row['name']. " ".$row['surname']."</p>
             </div>
         </div>
 
@@ -109,10 +114,22 @@ session_start();
             $.ajax({
                 type : "POST",
                 url : "chatPage.php",
-                data : { userID : user_ID},
+                data : {userID : user_ID},
                 success : alert("It is done")
             });
         }
+
+        function getPersonFullName() {
+            $.ajax({
+                type : "GET",
+                url: "chatPage.php",
+                dataType: "html",
+
+            })
+        }
+
+        
+    
 
 
 

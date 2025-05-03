@@ -12,7 +12,7 @@ closeAddFriendBtn.addEventListener("click", () => {
 
 const notificationsBtn = document.getElementById("notifications");
 
-//Per marjanin notify button i website
+
 notificationsBtn.addEventListener("click", () => {
   window.location.href='contact.php?clist=true'
 });
