@@ -14,6 +14,19 @@ function getUserID($email, $password)
     }
 }
 
+
+function getUserInfoByID($currentUserID) {
+    $conn = getConnection();
+
+    $sql = "SELECT name, surname, email, password FROM users WHERE userID = '$currentUserID'";
+
+    $result = $conn -> query($sql);
+
+    $row = $result -> fetch_assoc();
+
+    return $row;
+}
+
 function registerUser($name, $surname, $email, $password)
 {
     $conn = getConnection();
@@ -173,6 +186,23 @@ function getFriendListDESC($currentUserID) {
 }
 
 
+
+//Getting the messages for the user and friend
+
+
+
+//Sends message to the database, where we can get with the messages with getMessagePrivate method 
+function sendMessage($currentUserID, $currentFriendID, $currentMessage){
+    $conn = getConnection();
+
+    $sql = "INSERT INTO messages(senderID, receiverID, content) VALUES ('$currentUserID','$currentFriendID','$currentMessage')";
+
+    $conn -> query($sql);
+
+}
+
+
+//Function regarding the user for saving information
 
 
 

@@ -20,7 +20,7 @@ $userID = $_SESSION['userID'];
 
 <body>
 
-    <main  class='d-flex' style='background-color:rgb(50, 53, 60);'>
+    <main class='d-flex' style='background-color:rgb(50, 53, 60);'>
     <?php
     include 'includes/header.php';
     ?>
@@ -59,7 +59,6 @@ $userID = $_SESSION['userID'];
 
     <section id='messagePanel' class='messagePanelEdit'>
         <?php
-
         if(isset($_GET['startChat'])) {
             $fullNameList = getFriendName($_GET['startChat']);
             $row = $fullNameList -> fetch_assoc();
@@ -70,7 +69,7 @@ $userID = $_SESSION['userID'];
             </div>
         </div>
 
-        <div class='textAreaMessages'>
+        <div class='textAreaMessages' id='chatArea'>
 
             <div class='sender'>
                 <div class='senderBoxMessage'>
@@ -93,7 +92,7 @@ $userID = $_SESSION['userID'];
         </div>
 
         <div class='messageBox'>
-            <input type='text' placeholder='Type your here...'>
+            <input id='msgTypeBox' type='text' placeholder='Type your here...'>
         </div>";
 
         }
@@ -109,31 +108,7 @@ $userID = $_SESSION['userID'];
     <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script>
-    <script>
-        function getPersonDetails(user_ID){
-            $.ajax({
-                type : "POST",
-                url : "chatPage.php",
-                data : {userID : user_ID},
-                success : alert("It is done")
-            });
-        }
-
-        function getPersonFullName() {
-            $.ajax({
-                type : "GET",
-                url: "chatPage.php",
-                dataType: "html",
-
-            })
-        }
-
-        
-    
-
-
-
-    </script>
+    <script src="assets/js/chatPage.js"></script>
 
 
 
