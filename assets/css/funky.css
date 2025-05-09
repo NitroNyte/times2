@@ -94,7 +94,7 @@ border-radius: 25px;
 
 
 #messagePanel .textAreaMessages .contact .contactBoxSentMessage {
-background-color: green;
+background-color: rgb(24, 50, 146);
 padding: 12px 20px 1px 20px ;
 border-radius: 25px;
 
@@ -102,9 +102,14 @@ border-radius: 25px;
 
 .messageBox {
     display: flex;
+    flex-direction: row;
     flex: 1;
-    flex-direction: column;
     height: 10%;
+}
+
+#sendBox {
+    width: 10px;
+    cursor: pointer;
 }
 
 .messageBox input[type="text"] {

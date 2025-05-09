@@ -74,8 +74,9 @@ $userID = $_SESSION['userID'];
 
                     </div>
 
-                    <div class='messageBox '>
+                    <div class='messageBox'>
                     <input id='msgTypeBox' type='text' placeholder='Type your here...'>
+
                     </div>";
             } else {
                 echo "<h1 style='display:flex;justify-content:center;align-items:center; flex:1; color: white; font-weight:bold; font-style:italic;'>Select a friend to chat with</h1>";
@@ -93,10 +94,11 @@ $userID = $_SESSION['userID'];
                 let userID = <?= json_encode($_SESSION['userID']) ?>;
                 let friendID = <?= json_encode($_GET['startChat']) ?>;
 
+
                 function getMsg() {
-                    $.post("getMessages.php", {
+                    $.post("php/getMessages.php", {
                         userID: userID,
-                        friendID: friendID
+                        friendID: friendID,
                     }, function(data) {
                         $("#chatArea").html(data);
                         
@@ -104,10 +106,9 @@ $userID = $_SESSION['userID'];
                 }
 
                 function sendMsg() {
-
                     let content = $('#msgTypeBox').val().trim();
                     if(!(content==="")){
-                    $.post("sendMessage.php", {
+                    $.post("php/sendMessage.php", {
                         userID: userID,
                         friendID: friendID,
                         content: content
@@ -129,7 +130,7 @@ $userID = $_SESSION['userID'];
 
                 getMsg();
 
-                setInterval(getMsg, 100);
+                setInterval(getMsg, 1500);
 
             });
         </script>

@@ -1,5 +1,5 @@
 <?php
-require 'includes/db.php';
+require '../includes/db.php';
 
 $currentUserID = $_POST['userID'];
 $friendUserID = $_POST['friendID'];
