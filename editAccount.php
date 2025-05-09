@@ -1,6 +1,9 @@
 <?php
 require "includes/functions.php";
 session_start();
+if(!isset($_SESSION['userID'])){
+    header("Location: index.php");
+}
 
 
 $userID = $_SESSION['userID'];
@@ -74,11 +77,11 @@ $personDetails = getUserInfoByID($userID);
         let userID = $("#userID").val();
         let currentEmail = $("#currentEmail").val();
 
-        $.post('check_email.php', { email: email, currentEmail: currentEmail }, function(response) {
+        $.post('php/check_email.php', { email: email, currentEmail: currentEmail }, function(response) {
             if (response.trim() === 'taken') {
                 $("#emailHelp").text("Email is already taken!");
             } else {
-                $.post('update_user.php', {
+                $.post('php/update_user.php', {
                     name: name,
                     surname: surname,
                     email: email,

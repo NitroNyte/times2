@@ -2,6 +2,11 @@
 require "includes/functions.php";
 session_start();
 
+if(isset($_SESSION['userID'])){
+    header('Location: funky.php');
+    
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['LoginBtn'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -15,13 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['LoginBtn'])) {
             $_SESSION['surname'] = $user['surname'];
             $_SESSION['email'] = $_POST['email'];
 
-            header("Location: chatPage.php");
-            exit();
+            setUserOnline($user['userID']);
+            header("Location: funky.php");
+        }else{
+            header("Location: index.php?error=1");
         }
+    }else{
+        header("Location: index.php?error=2");
     }
+        
 }
-
-
 
 ?>
 
@@ -36,21 +44,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['LoginBtn'])) {
     <link rel="stylesheet" href="assets/css/centerForm.css">
     <link rel="stylesheet" href="assets/css/globalFont.css">
     <script src="JQuery.js"></script>
+
 </head>
-<body class="d-flex justify-content-center align-items-center">
+<body class="d-flex justify-content-center align-items-center" style='background-image:linear-gradient(to bottom right,#333333,#111111)'>
 <main>
 
     
         <div id="formDivison" class="d-flex justify-content-center align-items-center flex-column">
             <form id="loginForm" action="" class="d-flex justify-content-center align-items-center flex-column p-5 rounded" method="post">
-                <h1 class="pb-3">x2 Log In</h1>
+                <h1 class="pb-3" style="color:white">x2 Log In</h1>
                 <div class="form-group ">
-                    <label for="email">Email</label>
+                    <label for="email" style="color:white">Email</label>
                     <input type="email" class="form-control" name="email" id="email" aria-describedby="email" placeholder="Shenoni emailin">
-                    <label for="password" class="pt-3">Password</label>
+                    <label for="password" class="pt-3" style="color:white">Password</label>
                     <input type="password" class="form-control" name="password" id="password" aria-describedby="password" placeholder="Shenoni passwordin">
                 </div>
 
+                <?php
+                 if(isset($_GET['error']) && $_GET['error']==1){ 
+                    echo '<p style="color:#dd7777">Email or password is invalid</p>'; 
+                 }else if(isset($_GET['error']) && $_GET['error']==2){
+                    echo '<p style="color:#dd7777">Email or password is empty</p>'; 
+                 }?>
                 <input type="submit" class="btn btn-primary" value="Log In" id="Log In" name="LoginBtn">
                 <a href="register.php" class="pt-3">Don't have an account, click here to register</a>
 

@@ -1,5 +1,5 @@
 <?php
-require 'includes/db.php'; 
+require '../includes/db.php'; 
 
 $email = $_POST['email'];
 $currentEmail = $_POST['currentEmail'];

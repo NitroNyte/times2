@@ -2,7 +2,7 @@
     <nav id="navBar" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
         <ul style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 0; margin: 0; list-style: none;">
             <div class="upperPart">
-                <li title="Chats"><a href="chatPage.php"><img src="assets/images/chat.svg" alt="chats" width="50"></a></li>
+                <li title="Chats"><a href="funky.php"><img src="assets/images/chat.svg" alt="chats" width="50"></a></li>
                 <li title="Contacts" class="pt-2"><a href="contact.php"><img src="assets/images/group.svg" alt="contacts" width="50"></a></li>
             </div>
             <div>

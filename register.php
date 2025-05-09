@@ -1,15 +1,18 @@
 
 
 <?php
-require "includes/functions.php";
+include "includes/functions.php";
+session_start();
+if(isset($_SESSION['userID'])){
+  header("Location: funky.php");
+}
 
 if(!empty($_POST['emri']) && !empty($_POST['mbiemri']) && !empty($_POST['email']) && !empty($_POST['password'])) {
   if(registerUser($_POST['emri'],$_POST['mbiemri'],$_POST['email'],$_POST['password'])) {
     echo "Emaili eshte i nxene";
   }
   else {
-    header("Location: chatPage.php");
-    exit();
+    header("Location: index.php");
   }
   
 }
@@ -31,7 +34,7 @@ if(!empty($_POST['emri']) && !empty($_POST['mbiemri']) && !empty($_POST['email']
 </head>
 <body>
     <main>
-  <div id="formDivison" class="d-flex justify-content-center align-items-center flex-column">
+  <div id="formDivison" class="d-flex justify-content-center align-items-center flex-column" style='background-image:linear-gradient(to bottom right,#333333,#111111)'>
     <form id="loginForm" action="" class="d-flex justify-content-center align-items-center flex-column p-5 rounded" method="post">
       <h1 class="pb-3">x2 Register</h1>
       <div class="form-group ">
@@ -54,7 +57,7 @@ if(!empty($_POST['emri']) && !empty($_POST['mbiemri']) && !empty($_POST['email']
       <input type="submit" class="btn btn-primary" value="Register">
 
 
-      <a href="index.php">Have an account, click here to log in!</a>
+      <a href="index.php" class = "pt-3">Have an account, click here to log in!</a>
 
     </form>
   </div>

@@ -14,6 +14,21 @@ function getUserID($email, $password)
     }
 }
 
+function setUserOnline($currentUserID) {
+    $conn = getConnection();
+    $sql = "UPDATE users SET status = 'online' WHERE userID = '$currentUserID'";
+
+    $conn -> query($sql);
+}
+
+
+function setUserOffline($currentUserID) {
+    $conn = getConnection();
+    $sql = "UPDATE users SET status = 'offline' WHERE userID = '$currentUserID'";
+
+    $conn -> query($sql);
+}
+
 
 function getUserInfoByID($currentUserID) {
     $conn = getConnection();
@@ -121,7 +136,7 @@ function sendFriendRequest($userID, $email)
 function getPendingList($userID)
 {
     $conn = getConnection();
-    $sql = "SELECT users.name, users.surname, contacts.userID 
+    $sql = "SELECT users.name, users.surname, contacts.userID, contacts.friendID 
     FROM users INNER JOIN contacts ON users.userID = contacts.friendID 
     WHERE contacts.friendID = '$userID' AND contacts.status = 'pending' 
     GROUP BY contacts.friendID";
@@ -138,10 +153,10 @@ function getPendingList($userID)
     }
 }
 
-
+//Methods for accepting and deleting the user
 function acceptFriendRequest($sentID, $currentUserID){;
     $conn = getConnection();
-    $sqlCheck = "SELECT * FROM contacts WHERE userID='$sentID' AND friendID=$currentUserID";
+    $sqlCheck = "SELECT * FROM contacts WHERE userID='$sentID' AND friendID='$currentUserID'";
 
     if($conn->query($sqlCheck)->num_rows > 0){
         $sql = "UPDATE contacts SET status = 'accepted' WHERE friendID = '$currentUserID' AND userID = '$sentID'";
@@ -151,10 +166,20 @@ function acceptFriendRequest($sentID, $currentUserID){;
     }   
 }
 
+function deleteFriendRequest($currentUserID, $currentFriendID){
+    $conn = getConnection();
+    $sql = "DELETE FROM contacts WHERE userID='$currentUserID' AND friendID='$currentFriendID'";
+
+    $conn->query($sql);
+    header("Location: contact.php?clist=true");
+       
+}
+
+
 //Gets current user friendList, he might be sender or sended, this was done to remove duplicates in database
 function getFriendList($currentUserID) {
     $conn = getConnection();
-    $sql = "SELECT u.userID, u.name, u.surname FROM contacts c JOIN users u 
+    $sql = "SELECT u.userID, u.name, u.surname, c.friendID FROM contacts c JOIN users u 
     ON ((c.userID = '$currentUserID' AND u.userID = c.friendID) OR (c.friendID = '$currentUserID' AND u.userID = c.userID)) 
     WHERE c.status = 'accepted' GROUP BY u.name, u.surname";
 
@@ -171,7 +196,7 @@ function getFriendList($currentUserID) {
 
 function getFriendListDESC($currentUserID) {
     $conn = getConnection();
-    $sql = "SELECT u.userID, u.name, u.surname FROM contacts c JOIN users u 
+    $sql = "SELECT u.userID, u.name, u.surname, u.status FROM contacts c JOIN users u 
     ON ((c.userID = '$currentUserID' AND u.userID = c.friendID) OR (c.friendID = '$currentUserID' AND u.userID = c.userID)) 
     WHERE c.status = 'accepted' GROUP BY u.name, u.surname ORDER BY c.lastChatted DESC";
 

@@ -1,3 +1,7 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 #formDivison {
     display: flex;
     height: 100vh;
@@ -7,4 +11,5 @@
 
 form {
     border: 2px solid gray;
+    color: white;
 }

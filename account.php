@@ -1,7 +1,6 @@
 <?php
 session_start();
 require "includes/functions.php";
-
 $userID = $_SESSION['userID'];
 
 $personDetails = getUserInfoByID($userID);
