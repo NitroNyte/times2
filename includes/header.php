@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="assets/css/header.css">
 <header style="background-color: #3e4451; height: 100vh;" class="p-3">
     <nav id="navBar" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">

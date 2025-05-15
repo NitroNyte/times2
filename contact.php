@@ -18,12 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['accept'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['reject'])) {
-    deleteFriendRequest($userID,$_GET['reject']);
+    deleteFriendRequest($userID, $_GET['reject']);
 }
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['startAChat'])) {
-    header("Location: funky.php?startChat=".$userID);
+    header("Location: funky.php?startChat=" . $userID);
 }
 ?>
 
@@ -121,17 +121,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['startAChat'])) {
                     $friendList = getFriendList($userID);
                     if (!empty($friendList)) {
                         while ($row = $friendList->fetch_assoc()) {
-                            $fullName = $row['name'] . $row['surname'];
+                            $fullName = $row['name'] ." ". $row['surname'];
                             echo "<li>
                     <div class='friendsGroup pl-3 pr-4 p-1'>
                         <img src='assets/images/account.svg' alt='' width='60'>
                         <div class='info'>
                             <p>" . htmlspecialchars($fullName) . "</p>
-                            <p>Last online</p>
+                            <p>" . htmlspecialchars($row['status']) . "</p>
                         </div>
                         <div class='linkBox'>
-                            <a href='funky.php?startChat=". $row['userID'] . "'><img src='assets/images/chat.svg' alt='' width='30' title='Chat with friend'></a>
-                            <a href='contact.php?reject=". $row['userID'] ."'><img src='assets/images/close.svg' alt='' width='30' title='Delete friend'></a>
+                            <a href='funky.php?startChat=" . $row['userID'] . "'><img src='assets/images/chat.svg' alt='' width='30' title='Chat with friend'></a>
+                            <a href='contact.php?reject=" . $row['userID'] . "'><img src='assets/images/close.svg' alt='' width='30' title='Delete friend'></a>
                         </div>
                     </div>
                 </li>";

@@ -2,9 +2,8 @@
 require "includes/functions.php";
 session_start();
 
-if(isset($_SESSION['userID'])){
+if (isset($_SESSION['userID'])) {
     header('Location: funky.php');
-    
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['LoginBtn'])) {
@@ -22,13 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['LoginBtn'])) {
 
             setUserOnline($user['userID']);
             header("Location: funky.php");
-        }else{
+        } else {
             header("Location: index.php?error=1");
         }
-    }else{
+    } else {
         header("Location: index.php?error=2");
     }
-        
 }
 
 ?>
@@ -46,36 +44,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['LoginBtn'])) {
     <script src="JQuery.js"></script>
 
 </head>
-<body class="d-flex justify-content-center align-items-center" style='background-image:linear-gradient(to bottom right,#333333,#111111)'>
-<main>
 
-    
+<body class="d-flex justify-content-center align-items-center" style='background-image:linear-gradient(to bottom right,#333333,#111111)'>
+    <main>
+
+
         <div id="formDivison" class="d-flex justify-content-center align-items-center flex-column">
             <form id="loginForm" action="" class="d-flex justify-content-center align-items-center flex-column p-5 rounded" method="post">
                 <h1 class="pb-3" style="color:white">x2 Log In</h1>
                 <div class="form-group ">
                     <label for="email" style="color:white">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" aria-describedby="email" placeholder="Shenoni emailin">
+                    <input type="email" class="form-control" name="email" id="email" aria-describedby="email" placeholder="Enter your email">
                     <label for="password" class="pt-3" style="color:white">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" aria-describedby="password" placeholder="Shenoni passwordin">
+                    <input type="password" class="form-control" name="password" id="password" aria-describedby="password" placeholder="Enter your password">
                 </div>
 
                 <?php
-                 if(isset($_GET['error']) && $_GET['error']==1){ 
-                    echo '<p style="color:#dd7777">Email or password is invalid</p>'; 
-                 }else if(isset($_GET['error']) && $_GET['error']==2){
-                    echo '<p style="color:#dd7777">Email or password is empty</p>'; 
-                 }?>
+                if (isset($_GET['error']) && $_GET['error'] == 1) {
+                    echo '<p style="color:#dd7777">Email or password is invalid</p>';
+                } else if (isset($_GET['error']) && $_GET['error'] == 2) {
+                    echo '<p style="color:#dd7777">Email or password is empty</p>';
+                } ?>
                 <input type="submit" class="btn btn-primary" value="Log In" id="Log In" name="LoginBtn">
                 <a href="register.php" class="pt-3">Don't have an account, click here to register</a>
 
             </form>
         </div>
 
-        
+
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</main>
+    </main>
 </body>
 
 

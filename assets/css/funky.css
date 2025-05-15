@@ -1,121 +1,109 @@
 * {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding: 0;
-    margin: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 0;
+  margin: 0;
 }
 #chatPanel {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-
 
 #chatPanel .node {
-    height:6.5em;
-    width: 15em;
-    display: flex;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 10px 1em 10px 0;
-    color: white;
-    text-decoration: none;
-
+  height: 6.5em;
+  width: 15em;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 1em 10px 0;
+  color: white;
+  text-decoration: none;
 }
 
-#chatPanel .node:hover {  
+#chatPanel .node:hover {
   background-color: rgb(0, 0, 0, 0.2);
   transition: background 0.3s, border 0.3s;
   border-radius: 10px;
-    
 }
 
-
-#messagePanel{
-    border-left: 1px solid white;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    height: 100vh;
-    overflow-y: auto;
-    
+#messagePanel {
+  border-left: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 #messagePanel .infoBox {
-    background-color: rgba(10, 10, 10, 0.519);
-    display: flex;
-    gap: 20px;
-    padding-left: 2em;
-    height: 10%;
+  background-color: rgba(10, 10, 10, 0.519);
+  display: flex;
+  gap: 20px;
+  padding-left: 2em;
+  height: 10%;
 }
-
 
 #messagePanel .infoBox .nameBox {
-    padding-top: 0.7em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+  padding-top: 0.7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
-
 #messagePanel .textAreaMessages {
-    height: 83%;
-    display: block;
-    overflow-y: auto;
+  height: 83%;
+  display: block;
+  overflow-y: auto;
 }
 
 #messagePanel .textAreaMessages .sender {
-    display: flex;
-    color: white;
-    flex: 1;
-    justify-content: flex-end;
-    padding: 1em 1em 0 0;
+  display: flex;
+  color: white;
+  flex: 1;
+  justify-content: flex-end;
+  padding: 1em 1em 0 0;
 }
 
-
-#messagePanel .textAreaMessages .sender .senderBoxMessage {
-background-color: green;
-padding: 12px 20px 0px 20px ;
-border-radius: 25px;
-
+#messagePanel .textAreaMessages .sender .senderBoxSentMessage {
+  background-color: green;
+  padding: 12px 20px 1px 20px;
+  border-radius: 25px;
 }
 
-
+#messagePanel .textAreaMessages .sender .senderBoxName {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1em;
+}
 
 #messagePanel .textAreaMessages .contact {
-    display: flex;
-    color: white;
-    flex: 1;
-    justify-content: flex-start;
-    padding-top: 1em;
-    padding-left: 1em;
+  display: flex;
+  color: white;
+  flex: 1;
+  justify-content: flex-start;
+  padding-top: 1em;
+  padding-left: 1em;
 }
 
-
 #messagePanel .textAreaMessages .contact .contactBoxSentMessage {
-background-color: rgb(24, 50, 146);
-padding: 12px 20px 1px 20px ;
-border-radius: 25px;
-
+  background-color: rgb(0, 30, 128);
+  padding: 12px 20px 1px 20px;
+  border-radius: 25px;
 }
 
 .messageBox {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    height: 10%;
-}
-
-#sendBox {
-    width: 10px;
-    cursor: pointer;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 10%;
 }
 
 .messageBox input[type="text"] {
-    background-color: rgba(0, 0, 0, 0.393);
-    height: 100%;
-    color: white;
-    padding-left: 10px;
-    outline: none;
+  background-color: rgba(0, 0, 0, 0.393);
+  height: 100%;
+  color: white;
+  padding-left: 10px;
+  outline: none;
 }

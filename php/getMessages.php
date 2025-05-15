@@ -5,12 +5,13 @@ $currentUserID = $_POST['userID'];
 $currentFriendID = $_POST['friendID'];
 $friendName = getFriendName($currentFriendID);
 $friend = $friendName -> fetch_assoc();
+seenText($currentUserID, $currentFriendID);
 
 
 $conn = getConnection();
 
 $sql = "SELECT * FROM (
-        SELECT senderID, receiverID, content, timeCreated FROM messages WHERE 
+        SELECT senderID, receiverID, content, status, timeCreated FROM messages WHERE 
             (senderID = ? AND receiverID = ?) 
             OR 
             (receiverID = ? AND senderID = ?) 
@@ -24,7 +25,17 @@ $result = $stmt->get_result();
 while($row = $result -> fetch_assoc()){
     if($row['senderID'] == $currentUserID){
 
-    echo "<div class='sender'><div class='senderBoxMessage'><p>".htmlspecialchars($row['content'])."</p></div></div>";
+    echo "<div class='sender'>
+                <div class='senderBoxMessage'>
+                    <div class='senderBoxSentMessage'>
+                        <p>".htmlspecialchars($row['content'])."</p>
+                    </div>
+                    <div class='senderBoxName'>
+                        <h6 style='color:gray; font-style:italic; padding-left: 10px'>".htmlspecialchars($row['status'])."</h6>
+                    </div>
+                </div>
+            </div>";
+
     }
     else {
         echo "<div class='contact'>
@@ -35,7 +46,6 @@ while($row = $result -> fetch_assoc()){
                     <div class='contactBoxSentMessage'>
                         <p>".htmlspecialchars($row['content'])."</p>
                     </div>
-
                 </div>
             </div>";
     }

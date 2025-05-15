@@ -7,7 +7,6 @@ if (!isset($_SESSION['userID'])) {
 }
 $userID = $_SESSION['userID'];
 //ska use qtu niher
-
 ?>
 
 
@@ -18,7 +17,8 @@ $userID = $_SESSION['userID'];
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>x2Chat</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <link rel='stylesheet' href='assets/css/funky.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' href='assets/css/funky.css'>
 </head>
 
 <body>
@@ -76,7 +76,6 @@ $userID = $_SESSION['userID'];
 
                     <div class='messageBox'>
                     <input id='msgTypeBox' type='text' placeholder='Type your here...'>
-
                     </div>";
             } else {
                 echo "<h1 style='display:flex;justify-content:center;align-items:center; flex:1; color: white; font-weight:bold; font-style:italic;'>Select a friend to chat with</h1>";
@@ -88,7 +87,7 @@ $userID = $_SESSION['userID'];
 
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="JQuery.js"></script>
+        <script src="assets/js/JQuery.js"></script>
         <script>
             $(document).ready(function() {
                 let userID = <?= json_encode($_SESSION['userID']) ?>;
@@ -101,25 +100,25 @@ $userID = $_SESSION['userID'];
                         friendID: friendID,
                     }, function(data) {
                         $("#chatArea").html(data);
-                        
                     });
                 }
 
                 function sendMsg() {
                     let content = $('#msgTypeBox').val().trim();
-                    if(!(content==="")){
-                    $.post("php/sendMessage.php", {
-                        userID: userID,
-                        friendID: friendID,
-                        content: content
-                    }).done(function(respone) {
-                        $('#msgTypeBox').val("");
-                    }).fail(function(response) {
-                        alert("Message cannot be sent!");
-                    })
-                } else {
-                    alert("Please enter a text"); 
-                }
+                    if (!(content === "")) {
+                        $.post("php/sendMessage.php", {
+                            userID: userID,
+                            friendID: friendID,
+                            content: content
+                        }).done(function(respone) {
+                            $('#msgTypeBox').val("");
+                            $('#chatArea').scrollTop($('#chatArea')[0].scrollHeight);
+                        }).fail(function(response) {
+                            alert("Message cannot be sent!");
+                        })
+                    } else {
+                        alert("Please enter a text");
+                    }
                 }
 
                 $('#msgTypeBox').on("keypress", function(e) {
@@ -132,9 +131,17 @@ $userID = $_SESSION['userID'];
 
                 setInterval(getMsg, 1500);
 
+                setInterval(function() {
+                    $.post("php/mark_seen.php", {
+                        currentUserID: userID,
+                        currentFriendID: friendID
+                    });
+                }, 2000);
+
             });
         </script>
 
     </main>
 </body>
+
 </html>
