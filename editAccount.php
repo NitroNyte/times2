@@ -49,7 +49,7 @@ $personDetails = getUserInfoByID($userID);
                     <input type="email" class="form-control" name="email" id="email" aria-describedby="email" value="<?php echo $personDetails['email']; ?>">
                     <input type="hidden" id="currentEmail" value="<?php echo $personDetails['email']; ?>">
                     <label  for="password" class="pt-3">Passwordi</label>
-                    <input type="password" class="form-control" name="password" id="password" aria-describedby="email" placeholder="" value="<?php echo $personDetails['password']; ?>">
+                    <input type="password" minlength="8" class="form-control" name="password" id="password" aria-describedby="email" placeholder="" value="<?php echo $personDetails['password']; ?>">
                     <input type="hidden" value="<?php echo $userID; ?>" name="userID" id="userID">
                 </div>
                 <small id="emailHelp" class="form-text"></small>

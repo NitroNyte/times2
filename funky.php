@@ -113,6 +113,7 @@ $userID = $_SESSION['userID'];
                         }).done(function(respone) {
                             $('#msgTypeBox').val("");
                             $('#chatArea').scrollTop($('#chatArea')[0].scrollHeight);
+                            refreshContactList();
                         }).fail(function(response) {
                             alert("Message cannot be sent!");
                         })
@@ -137,6 +138,13 @@ $userID = $_SESSION['userID'];
                         currentFriendID: friendID
                     });
                 }, 2000);
+
+
+                function refreshContactList() {
+                    $.get("get_friendList.php", function(data) {
+                        $("#chatPanel").html(data); 
+                    });
+                }
 
             });
         </script>

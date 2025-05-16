@@ -273,15 +273,6 @@ function getFriendListDESC($currentUserID)
 }
 
 
-//Sends message to the database, where we can get with the messages with getMessagePrivate method 
-function sendMessage($currentUserID, $currentFriendID, $currentMessage)
-{
-    $conn = getConnection();
-
-    $stmt = $conn -> prepare("INSERT INTO messages(senderID, receiverID, content) VALUES (?,?,?)");
-    $stmt -> bind_param("iis", $currentUserID, $currentFriendID, $currentMessage);
-    $stmt -> execute(); 
-}
 
 
 
