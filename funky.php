@@ -3,10 +3,13 @@
 include 'includes/functions.php';
 session_start();
 if (!isset($_SESSION['userID'])) {
+    //If user isn't logged in just turn him back
     header("Location: index.php");
 }
 $userID = $_SESSION['userID'];
-//ska use qtu niher
+//This should be done by server, but as a temporary fix this works
+deleteMessageOverTime();
+
 ?>
 
 
@@ -46,7 +49,7 @@ $userID = $_SESSION['userID'];
                                 <img src='assets/images/account.svg' alt='' width='60'>
                                     <div class='info'>
                                         <p>" . htmlspecialchars($fullName) . "</p>
-                                        <p class='text-secondary'>" . htmlspecialchars($row['status']) . "</p>
+                                        <p class='text-secondary' id='status-{$row['userID']}'>" . htmlspecialchars($row['status']) . "</p>
                                     </div>
                             </div>
                         </li>
@@ -90,6 +93,7 @@ $userID = $_SESSION['userID'];
         <script src="assets/js/JQuery.js"></script>
         <script>
             $(document).ready(function() {
+                //Same as php echo, just another version that is interesting
                 let userID = <?= json_encode($_SESSION['userID']) ?>;
                 let friendID = <?= json_encode($_GET['startChat']) ?>;
 
@@ -142,9 +146,30 @@ $userID = $_SESSION['userID'];
 
                 function refreshContactList() {
                     $.get("get_friendList.php", function(data) {
-                        $("#chatPanel").html(data); 
+                        $("#chatPanel").html(data);
                     });
                 }
+
+
+
+                //Checking if the user is offline or online, to update dynamically
+                //Not best solution
+                function updateOnlineStatus() {
+                    $.post("php/check_online_status.php", {
+                        userID: userID 
+                    }, function(data) {
+                        data.forEach(function(friend) {
+                            const statusEl = document.getElementById('status-' + friend.userID);
+                            if (statusEl) {
+                                statusEl.textContent = friend.status;
+                            }
+                        });
+                    }, 'json');
+                }
+
+                updateOnlineStatus();
+                setInterval(updateOnlineStatus, 10000);
+                
 
             });
         </script>

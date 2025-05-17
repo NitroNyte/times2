@@ -30,7 +30,8 @@ if ($result->num_rows > 0) {
                     <img src='assets/images/account.svg' alt='' width='60'>
                     <div class='info'>
                         <p>" . htmlspecialchars($fullName) . "</p>
-                        <p class='text-secondary'>" . htmlspecialchars($row['status']) . "</p>
+                        <p class='text-secondary' id='status-{$row['userID']}'>" . htmlspecialchars($row['status']) . "</p>
+
                     </div>
                 </div>
             </li>
